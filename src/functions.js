@@ -53,7 +53,6 @@ async function getPresence(rpcUserId) {
 
 function createWindow() {
 	const icon = join(__dirname, '..', 'robloxrpcicon.png')
-	console.log(icon)
 	const mainWindow = new BrowserWindow({
 		width: 800,
 		height: 600,
@@ -63,6 +62,8 @@ function createWindow() {
 		},
 		icon: icon,
 	})
+
+	mainWindow.setMenu(null)
 
 	mainWindow.loadURL(`file://${__dirname}/index.html`)
 
