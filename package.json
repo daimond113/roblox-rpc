@@ -1,0 +1,52 @@
+{
+  "name": "roblox-rpc",
+  "version": "1.0.0",
+  "description": "Roblox rich presence in Discord!",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daimond113/roblox-rpc.git"
+  },
+  "keywords": [
+    "Roblox",
+    "Rich",
+    "Presence",
+    "Discord"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "author": "https://github.com/daimond113",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daimond113/roblox-rpc/issues"
+  },
+  "homepage": "https://github.com/daimond113/roblox-rpc#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "discord-rpc": "^3.2.0",
+    "i": "^0.3.6",
+    "npm": "^7.5.6",
+    "rage-edit": "^1.2.0"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "electron": "^11.3.0",
+    "electron-builder": "^22.9.1"
+  },
+  "build": {
+    "appId": "com.daimond113.robloxrpc",
+    "productName": "Roblox RPC",
+    "target": "NSIS",
+    "directories": {
+      "output": "build",
+      "buildResources": "buildResources"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "uninstallDisplayName": "Roblox RPC"
+    }
+  }
+}
