@@ -1,24 +1,14 @@
+require('./app.js')
 const variables = require('./variables')
-const { getPresence, createWindow } = require('./functions')
+const { getPresence } = require('./functions')
 const { Client } = require('discord-rpc')
 const { redBright } = require('chalk')
 const rpc = new Client({
 	transport: 'ipc',
 })
-const { app, BrowserWindow } = require('electron')
 const userId = '814160723319455794'
 let reallyLastLocation
 let lastTime
-
-app.whenReady().then(createWindow)
-
-app.on('activate', function () {
-	if (BrowserWindow.getAllWindows().length === 0) createWindow()
-})
-
-app.on('window-all-closed', function () {
-	if (process.platform !== 'darwin') app.quit()
-})
 
 rpc.on('ready', () => {
 	console.log(`Authenticated as ${rpc.user.username}`)

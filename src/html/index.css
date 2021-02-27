@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+	font-family: 'Roboto';
+	margin: 0;
+	color: #efefef;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.loader {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 1;
+	transition: opacity 0.5s linear;
+}
+
+.loader img {
+	width: 7rem;
+}
+
+.loader.fade {
+	opacity: 0;
+}
+
+.gradient {
+	animation-duration: 1.8s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	animation-name: placeholderShimmer;
+	animation-timing-function: linear;
+	background: #222225
+		linear-gradient(to right, #222225 8%, #404043 38%, #222225 54%);
+	background-size: 1000px 100%;
+}
+
+@keyframes placeholderShimmer {
+	from {
+		background-position: -500px 0;
+	}
+	to {
+		background-position: 500px 0;
+	}
+}
+
+.main-wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.info {
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.user {
+	flex-basis: 5rem;
+	display: grid;
+	grid-template-columns: 5rem 1fr;
+	grid-template-rows: 2rem 1fr;
+	gap: 0.2rem;
+}
+
+.user .pfp {
+	position: relative;
+	border-radius: 50%;
+	grid-column: 1;
+	grid-row: 1 / 3;
+}
+
+.user .username {
+	grid-column: 2;
+	grid-row: 1;
+}
+
+.user .state {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+.actions {
+	background-color: #1b1b1d;
+	display: flex;
+	padding: 1rem;
+	gap: 0.5rem;
+}
+
+button {
+	border: none;
+	font: inherit;
+	background-color: #f81c1c;
+	padding: 0.5rem 1rem;
+	color: white;
+	border-radius: 4px;
+	cursor: pointer;
+	outline: none;
+}
+
+button:hover {
+	filter: brightness(80%);
+}
+
+button:active {
+	filter: brightness(120%);
+}
