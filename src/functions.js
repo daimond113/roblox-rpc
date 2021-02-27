@@ -68,7 +68,6 @@ function createWindow() {
 
 	mainWindow.loadURL(join('file://', __dirname, 'index.html'))
 
-	mainWindow.webContents.openDevTools()
 	ipcMain.handle('get-enabled-variable', () => {
 		return variables.enabled
 	})
