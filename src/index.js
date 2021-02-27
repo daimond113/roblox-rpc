@@ -27,7 +27,7 @@ rpc.on('ready', () => {
 
 setInterval(async () => {
 	if (variables.enabled === true) {
-		const presence = await getPresence(rpc.user.id)
+		const presence = await getPresence()
 		const userPresences = presence.data.userPresences[0]
 		const lastLocation = userPresences.lastLocation
 
@@ -71,6 +71,8 @@ setInterval(async () => {
 				break
 		}
 	} else {
+		lastTime = null
+		reallyLastLocation = null
 		rpc.clearActivity()
 	}
 }, 15000)

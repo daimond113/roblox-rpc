@@ -22,25 +22,26 @@ async function getROBLOSECURITY() {
 	return cookie
 }
 
-async function getPresence(rpcUserId) {
-	const user = await get(`https://verify.eryn.io/api/user/${rpcUserId}`).catch(
-		(er) => {
-			console.log(redBright(`RBLX_AUTHENTICATED_ERROR: ${er.message}`))
-		}
-	)
+async function getPresence() {
+	const cookie = await getROBLOSECURITY()
+	const headers = {
+		Cookie: `.ROBLOSECURITY=${cookie}`,
+	}
+	const user = await get('https://users.roblox.com/v1/users/authenticated', {
+		headers: headers,
+	}).catch((er) => {
+		console.log(redBright(`RBLX_AUTHENTICATED_ERROR: ${er.message}`))
+	})
 	if (!user) {
 		return console.log(redBright("You aren't authenticated as any user!"))
 	}
-	const cookie = await getROBLOSECURITY()
 	const presence = await post(
 		'https://presence.roblox.com/v1/presence/users',
 		{
-			userIds: [user.data.robloxId],
+			userIds: [user.data.id],
 		},
 		{
-			headers: {
-				Cookie: `.ROBLOSECURITY=${cookie}`,
-			},
+			headers: headers,
 		}
 	).catch((er) => {
 		console.log(redBright(`RBLX_PRESENCE_ERROR: ${er.message}`))
@@ -65,8 +66,9 @@ function createWindow() {
 
 	mainWindow.setMenu(null)
 
-	mainWindow.loadURL(`file://${__dirname}/index.html`)
+	mainWindow.loadURL(join('file://', __dirname, 'index.html'))
 
+	mainWindow.webContents.openDevTools()
 	ipcMain.handle('get-enabled-variable', () => {
 		return variables.enabled
 	})
@@ -80,6 +82,12 @@ function createWindow() {
 
 	ipcMain.handle('process-exit', () => {
 		process.exit()
+	})
+	ipcMain.handle('update-html-text', (_, id, newText) => {
+		console.log(id, newText)
+		mainWindow.webContents.executeJavaScript(
+			`document.getElementById('${id}').innerHTML = '${newText}'`
+		)
 	})
 }
 

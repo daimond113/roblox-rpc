@@ -1,7 +1,13 @@
-function switchRPC() {
-	console.log(window.variables)
-	window.variables.setEnabled(!window.variables.getEnabled())
-	console.log(window.variables.getEnabled())
+async function switchRPC() {
+	const promiedValue = await window.variables.getEnabled()
+	const value = !promiedValue
+	window.variables.setEnabled(value)
+	console.log(value)
+	if (value) {
+		window.htmlContent.updateTextOfObjectById('enableordisable', 'Disable RPC')
+	} else {
+		window.htmlContent.updateTextOfObjectById('enableordisable', 'Enable RPC')
+	}
 }
 function killRPC() {
 	window.process.exit()

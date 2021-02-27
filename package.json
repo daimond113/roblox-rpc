@@ -1,6 +1,6 @@
 {
   "name": "roblox-rpc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Roblox rich presence in Discord!",
   "main": "src/index.js",
   "repository": {
@@ -26,8 +26,6 @@
   "dependencies": {
     "axios": "^0.21.1",
     "discord-rpc": "^3.2.0",
-    "i": "^0.3.6",
-    "npm": "^7.5.6",
     "rage-edit": "^1.2.0"
   },
   "devDependencies": {

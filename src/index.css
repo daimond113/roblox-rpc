@@ -1,13 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body {
-	background-color: rgb(63, 62, 62);
+	background-color: rgb(22, 22, 22);
+}
+
+html,
+body {
+	height: 100%;
 }
 
 button {
 	color: rgb(255, 255, 255);
-	background-color: rgb(116, 116, 116);
+	background-color: rgb(22, 59, 138);
 	width: 80%;
-	height: 10%;
 	border-radius: 20px;
 	margin: auto;
 	display: table;
+	border-color: rgb(5, 173, 185);
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	transition: height 1s ease-out;
+	height: 10%;
+	background-color: rgb(22, 59, 138);
+}
+
+button:hover {
+	transition: height 1s ease;
+	height: 12%;
+}
+
+button:active {
+	transition: background-color 0.2s ease;
+	background-color: rgb(231, 192, 18);
 }
