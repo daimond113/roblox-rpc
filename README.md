@@ -13,7 +13,7 @@ After doing that, you should run the program. There isn't many options avaliable
 
 <ol>
 <li>
-Disable/Enabled the RPC
+Disable/Enable the RPC
 </li>
 <li>
 Kill the RPC
