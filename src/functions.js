@@ -83,7 +83,6 @@ function createWindow() {
 		process.exit()
 	})
 	ipcMain.handle('update-html-text', (_, id, newText) => {
-		console.log(id, newText)
 		mainWindow.webContents.executeJavaScript(
 			`document.getElementById('${id}').innerHTML = '${newText}'`
 		)

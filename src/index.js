@@ -10,11 +10,10 @@ const userId = '814160723319455794'
 let reallyLastLocation
 let lastTime
 
-app.whenReady().then(() => {
-	createWindow()
-	app.on('activate', function () {
-		if (BrowserWindow.getAllWindows().length === 0) createWindow()
-	})
+app.whenReady().then(createWindow)
+
+app.on('activate', function () {
+	if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
 
 app.on('window-all-closed', function () {
