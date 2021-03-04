@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Roblox Rich Presence</title>
+</head>
+
+<body>
+    <template id="loader">
+        <div class="loader">
+            <img src="https://images.rbxcdn.com/4bed93c91f909002b1f17f05c0ce13d1.gif" alt="Loading" />
+        </div>
+    </template>
+
+    <template id="main">
+        <div class="main-wrapper">
+            <div class="info">
+                <div class="user">
+                    <img class="gradient pfp" id="pfp" alt="">
+                    <div class="gradient username" id="username"></div>
+                    <div class="gradient state" id="state"></div>
+                </div>
+            </div>
+            <div class="actions">
+                <button onclick="exit()">Exit</button>
+            </div>
+        </div>
+    </template>
+
+    <div id="root"></div>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

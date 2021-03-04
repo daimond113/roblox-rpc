@@ -2,7 +2,7 @@
 
 <div align="center">
 	<b float="top">Roblox Rich Presence in Discord!</b><br />
-	<img src="robloxrpcicon.png" alt="Roblox RPC icon" height=300px>
+	<img src="./src/robloxrpcicon.png" alt="Roblox RPC icon" height=300px>
 </div>
 
 # How to use
@@ -13,10 +13,7 @@ After doing that, you should run the program. There isn't many options avaliable
 
 <ol>
 <li>
-Disable/Enable the RPC
-</li>
-<li>
-Kill the RPC
+Hide/Show the RPC window
 </li>
 </ol>
 
