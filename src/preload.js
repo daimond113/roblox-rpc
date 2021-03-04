@@ -1,15 +1,20 @@
 const { contextBridge, ipcRenderer } = require('electron')
-
-contextBridge.exposeInMainWorld('variables', {
-	setEnabled: (value) => ipcRenderer.invoke('set-enabled-variable', value),
-	getEnabled: () => ipcRenderer.invoke('get-enabled-variable'),
-})
+let username = document.getElementById('username')
+let status = document.getElementById('state')
+let pfp = document.getElementById('pfp')
 
 contextBridge.exposeInMainWorld('process', {
 	exit: () => ipcRenderer.invoke('process-exit'),
 })
 
-contextBridge.exposeInMainWorld('htmlContent', {
-	updateTextOfObjectById: (id, newText) =>
-		ipcRenderer.invoke('update-html-text', id, newText),
+ipcRenderer.on('set-user-info', (_, data) => {
+	username = document.getElementById('username')
+	status = document.getElementById('state')
+	pfp = document.getElementById('pfp')
+	username.classList.remove('gradient')
+	status.classList.remove('gradient')
+	pfp.classList.remove('gradient')
+	username.innerHTML = `Name: ${data.name}</br>Display Name: ${data.displayName}`
+	status.innerHTML = `</br>Status: ${data.location}`
+	pfp.src = data.profile
 })
