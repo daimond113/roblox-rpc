@@ -21,4 +21,8 @@ Of course, more features will be added **_Soon™_**
 
 # Want to contribute or report a bug?
 
-Any kind of contribution is welcome! You can do that on the <a  href="https://github.com/daimond113/roblox-rpc">GitHub page.</a>
+Any kind of contribution is welcome! You can do that on the <a  href="https://github.com/daimond113/roblox-rpc/issues">GitHub page.</a>
+
+# A problem? A question?
+
+You can ask on my <a href="https://discord.gg/hTanCT5JMp">discord server</a>!
