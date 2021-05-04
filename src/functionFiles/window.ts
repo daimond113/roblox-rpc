@@ -1,6 +1,6 @@
-const { ipcMain, BrowserWindow, app } = require('electron')
-const { join } = require('path')
-const eventEmitter = require('../eventemitter')
+import { ipcMain, BrowserWindow, app } from 'electron'
+import { join } from 'path'
+import eventEmitter from '../eventemitter'
 
 function createWindow() {
 	const icon = join(__dirname, '..', 'robloxrpcicon.png')
@@ -47,7 +47,7 @@ function createBackgroundWindow() {
 	return win
 }
 
-module.exports = {
-	createWindow: createWindow,
-	createBackgroundWindow: createBackgroundWindow,
+export default {
+	createWindow,
+	createBackgroundWindow,
 }

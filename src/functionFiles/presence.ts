@@ -1,9 +1,10 @@
-const { redBright } = require('chalk')
-const { post, get } = require('axios')
-const getROBLOSECURITY = require('./cookie')
-const setUserInfo = require('./setuserinfo')
+import { redBright } from 'chalk'
+import axios from 'axios'
+import getROBLOSECURITY from './cookie'
+import setUserInfo from './setuserinfo'
+const { post, get } = axios
 
-async function getPresence() {
+export default async function getPresence() {
 	const cookie = await getROBLOSECURITY()
 	const headers = {
 		Cookie: `.ROBLOSECURITY=${cookie}`,
@@ -33,5 +34,3 @@ async function getPresence() {
 	setUserInfo(presence, user)
 	return presence
 }
-
-module.exports = getPresence

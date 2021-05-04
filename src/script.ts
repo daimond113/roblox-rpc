@@ -1,9 +1,9 @@
 const rootDiv = document.getElementById('root')
-const loaderTemplate = document.getElementById('loader')
-const mainTemplate = document.getElementById('main')
+const loaderTemplate = document.getElementById('loader') as HTMLTemplateElement
+const mainTemplate = document.getElementById('main') as HTMLTemplateElement
 
 function showLoader() {
-	const loaderClone = loaderTemplate.content.cloneNode(true)
+	const loaderClone = loaderTemplate.content.cloneNode(true) as DocumentFragment
 	const loaderDiv = loaderClone.firstElementChild
 
 	rootDiv.appendChild(loaderClone)

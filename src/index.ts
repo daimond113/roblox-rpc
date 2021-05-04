@@ -1,13 +1,14 @@
 require('./app.js')
-const { getPresence } = require('./functions')
-const { Client } = require('discord-rpc')
-const { redBright } = require('chalk')
+import functions from './functionFiles'
+import { Client } from 'discord-rpc'
+import { redBright } from 'chalk'
 const rpc = new Client({
 	transport: 'ipc',
 })
 const userId = '814160723319455794'
-let reallyLastLocation
-let lastTime
+let reallyLastLocation: string
+let lastTime: number
+const { getPresence } = functions
 
 async function handleRPC() {
 	const presence = await getPresence()

@@ -1,9 +1,9 @@
-const { Registry } = require('rage-edit')
+import { Registry } from 'rage-edit'
 const reg = new Registry(
 	'HKCU\\SOFTWARE\\Roblox\\RobloxStudioBrowser\\roblox.com'
 )
 
-async function getROBLOSECURITY() {
+export default async function getROBLOSECURITY() {
 	const ROBLOSECURITY = await reg.get('.ROBLOSECURITY')
 	const exp = ROBLOSECURITY.split(',')[1]
 		.replace('EXP::', '')
@@ -16,5 +16,3 @@ async function getROBLOSECURITY() {
 	}
 	return cookie
 }
-
-module.exports = getROBLOSECURITY

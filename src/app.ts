@@ -1,12 +1,9 @@
-const { app } = require('electron')
-const {
-	createBackgroundWindow,
-	createWindow,
-	createTray,
-} = require('./functions')
-let tray
-let backgroundWindow
-let mainWindow
+import functions from './functionFiles'
+import { app, BrowserWindow, Tray } from 'electron'
+const { createWindow, createTray, createBackgroundWindow } = functions
+let tray: Tray
+let backgroundWindow: BrowserWindow
+let mainWindow: BrowserWindow
 
 app.whenReady().then(() => {
 	mainWindow = createWindow()
